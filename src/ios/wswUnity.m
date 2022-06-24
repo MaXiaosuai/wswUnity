@@ -38,7 +38,8 @@
     launchMiniProgramReq.miniProgramType = (int)[[params objectForKey:@"miniprogramType"] integerValue]; //拉起小程序的类型
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         if(success) {
-             self.currentCallbackId = command.callbackId;
+            [self successWithCallbackID:command.callbackId withMessage:@"打开成功"];
+//             self.currentCallbackId = command.callbackId;
         } else {
             [self failWithCallbackID:command.callbackId withMessage:@"打开请求失败"];
         }
